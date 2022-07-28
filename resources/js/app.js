@@ -1,6 +1,12 @@
-
-import {createApp} from 'vue'
-
+import "bootstrap/dist/css/bootstrap.min.css"
 import App from './components/App.vue'
+import {store} from "./store/store";
 
-createApp(App).mount("#app")
+
+
+new Vue({
+    store,
+    render:(h)=>h(App)
+}).$mount("#app")
+
+// createApp(App).mount("#app")

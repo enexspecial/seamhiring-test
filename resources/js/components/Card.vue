@@ -32,7 +32,6 @@ export default {
                 price: this.product.price_of_item,
                 id: this.product.id,
             };
-            console.log(item);
             this.$store.commit("set_carts", item);
         },
     },

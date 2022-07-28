@@ -11,9 +11,9 @@ export const store = createStore({
         items: (state) => {
             return state.items
         },
-        carts:(state)=>{
-            return state.carts
-        }
+        // carts:(state)=>{
+        //     return state.carts
+        // }
     },
     mutations:{
         set_items: (state, data) => {

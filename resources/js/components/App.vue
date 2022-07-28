@@ -4,13 +4,13 @@
             <a class="navbar-brand" href="#">Cart Item</a>
         </div>
     </nav>
-    <div class="container">
+    <div class="container mt-3">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Example Component</div>
+                    {{items}}
 
-                    <div class="card-body">I'm an example component.</div>
+
                 </div>
             </div>
         </div>
@@ -19,11 +19,16 @@
 
 <script>
 export default {
+    computed:{
+        items(){
+            return this.$store.getters.items
+        }
+    },
     mounted() {
         console.log("Component mounted.");
     },
     created(){
-
+        this.$store.dispatch("get_items")
     }
 };
 </script>

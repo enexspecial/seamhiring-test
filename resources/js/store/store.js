@@ -1,10 +1,8 @@
-import {Vue} from "vue";
 import axios from "axios";
-import Vuex from  "vuex";
+import {createStore} from  "vuex";
 
-Vue.use(Vuex);
 
-export const store = new Vuex.store({
+export const store = createStore({
     state:{
         items:{}
     },
@@ -19,9 +17,9 @@ export const store = new Vuex.store({
         }
     },
     actions:{
-        get_items:(context) =>{
+        get_items:({state, commit}) =>{
             axios.get(`http://127.0.0.1:8000/api/cart-item`).then((response)=>{
-                context.commit('set_uset_items', response.data)
+                commit('set_items', response.data.data)
             }).catch((errors)=>{
                 console.log(errors);
             })

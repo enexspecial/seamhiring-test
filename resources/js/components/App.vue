@@ -7,28 +7,32 @@
     <div class="container mt-3">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card">
-                    {{items}}
-
-
-                </div>
+                <Card
+                    v-for="item in items"
+                    :key="item.id"
+                    :product="item"
+                ></Card>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Card from "./Card.vue";
 export default {
-    computed:{
-        items(){
-            return this.$store.getters.items
-        }
+    components: {
+        Card,
+    },
+    computed: {
+        items() {
+            return this.$store.getters.items;
+        },
     },
     mounted() {
         console.log("Component mounted.");
     },
-    created(){
-        this.$store.dispatch("get_items")
-    }
+    created() {
+        this.$store.dispatch("get_items");
+    },
 };
 </script>

@@ -4,16 +4,23 @@ import {createStore} from  "vuex";
 
 export const store = createStore({
     state:{
-        items:{}
+        items:{},
+        carts:[]
     },
     getters:{
         items: (state) => {
             return state.items
+        },
+        carts:(state)=>{
+            return state.carts
         }
     },
     mutations:{
         set_items: (state, data) => {
             state.items = data
+        },
+        set_carts:(state, data) =>{
+            state.carts = data
         }
     },
     actions:{
